@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+
+:root{
+    --cor-background: rgb(31, 31, 31);
+    --cor-navbar: rgb(24, 24, 24);
+    --cor-principal: #c34de4;
+    --cor-secundaria: #9d2baf;
+}
+
+body{
+    margin: 0;
+    background-color:  var(--cor-background);
+    font-family: "Roboto Mono", monospace;
+    color: white;
+}
+
+.cabecalho{
+    margin: 0;
+    background-color: var(--cor-navbar);
+}
+
+.cabecalho_menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 95px;
+    gap: 0px;
+}
+
+.cabecalho_menu_link{
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 13px;
+    color: white;
+}
+.cabecalho_menu_link:hover{
+    font-size: 1.1rem;
+    color: var(--cor-principal);
+    transition: 0.3s;
+}
+
+.cabecalho_menu_link_login{
+    color: white;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 11px;
+    border-radius: 13px;
+    background-color: var(--cor-principal);
+}
+.cabecalho_menu_link_login:hover{
+    color: white;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 15px;
+    background-color: var(--cor-secundaria);
+    transition: 0.3s;
+}
+
+strong{
+
+    color: var(--cor-principal);
+}
+
+.resumo-principal{
+    display: flex;
+    margin: 100px;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.resumo-principal-texto{
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    max-width: 580px;
+}
+.resumo-principal-imagem{
+    max-width: 500px;
+    margin-right: 30px;
+    
+}
+.resumo-principal-botao{
+    color: white;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 10px; 
+    border-radius: 13px;
+    background-color: var(--cor-principal);
+    align-self: center; 
+    text-align: center;
+    width: 150px;
+    
+}
+.resumo-principal-botao:hover{
+    background-color: var(--cor-secundaria);
+    transition: 0.3s;
+}
+.resumo-principal-titulo{
+    align-self: center;
+    font-size: 1.5rem;
+}
+
+.rodape{
+    display: flex;
+    margin: 0;
+    background-color: var(--cor-navbar);
+    flex-direction: column;
+}
+.rodape-div{
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rodape-titulo{
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.rodape-texto{
+    margin: 5px;
+
+    font-size: 0.9rem;
+}
+.rodape-texto-final{
+    margin-top: 10px;
+    font-size: 0.8rem;
+}
+
+.rodape-texto-link{
+    text-decoration: none;
+    color: var(--cor-principal);
+}
+.rodape-texto-link:hover{
+    color: var(--cor-secundaria);
+    transition: 0.3s;
+}
+
+.secao{
+    display: flex;
+    margin: 0;
+    align-content: center;
+    margin: 50px;
+   
+}
+.secao-item{
+    border: solid 0px var(--cor-principal);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    align-items: center;
+    text-align: center;
+    max-height: 1000px;
+}
+.secao-titulo{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.secao-item:hover{
+    border: solid 1px var(--cor-principal);
+    border-radius: 12px;
+    transition: 0.5s;
+    padding: 16px;
+}
+
+.secao-item-titulo{
+    font-size: 1.5rem;
+}
+
+.secao-item-texto{
+    font-size: 1rem;
+}
+
+.secao-item-imagem{
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.secao-item-valor{
+    color: var(--cor-principal);
+    font-size: 1.1rem;
+}
+
+.secao-item-botao{
+    color: white;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 10px; 
+    border-radius: 12px;
+    background-color: var(--cor-principal);
+    align-self: center; 
+    text-align: center;
+    width: 100px;
+}
+
+.secao-item-botao:hover{
+    background-color: var(--cor-secundaria);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.section-quem-somos{
+    display: flex;
+    margin: 0;
+    align-content: center;
+    margin: 50px;
+    justify-content: center;
+   
+}
+
+
+.section-quem-somos-container{
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    max-width: 580px;
+}
+
+.section-quem-somos-imagem{
+    width: 400px;
+    height: 400px;
+    margin-left: 30px;
+    align-self: center;
+    border-radius: 15px;
+}
+.section-quem-somos-titulo{
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.fa-icons{
+    font-size: 1.2rem;
+    color: var(--cor-principal);
+    margin: 10px;
+}
+.fa-icons:hover{
+    color: var(--cor-secundaria);
+    font-size: 1.3rem;
+    transition: 0.3s;
+}
+
+
+
+
+
+

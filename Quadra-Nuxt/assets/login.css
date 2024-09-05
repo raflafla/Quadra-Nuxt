@@ -1,0 +1,87 @@
+:root{
+    --cor-background: rgb(31, 31, 31);
+    --cor-navbar: rgb(24, 24, 24);
+    --cor-principal: #9b2b90;
+    --cor-secundaria: #682a65;
+    
+}
+*{
+    color: white;
+}
+
+.container-login-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    height: 740px;
+}
+.container-login-label{
+    flex-direction: row;
+    margin: 10px;
+    text-align: center;
+}
+
+.contaier-login-texto{
+    margin: auto;
+    font-size: 1.1rem;
+}
+
+.container-login-input{
+    font-size: 1rem;
+    background-color: var(--cor-background);
+    border: solid 1px var(--cor-principal);
+    border-radius: 12px;
+    padding: 5px;
+}
+.container-login-input:hover{
+    font-size: 1.01rem;
+    background-color: var(--cor-navbar);
+    border: solid 1px var(--cor-secundaria);
+    transition: 0.3s;
+}
+
+.container-login-botao{
+    margin: 10px;
+    font-size: 1.2rem;
+    width: 200px;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--cor-principal);
+    color: white;
+    padding: 5px;
+}
+.container-login-botao:hover{
+    background-color: var(--cor-secundaria);
+    transition: 0.3s;
+    cursor: pointer;    
+}
+
+.container-login-link{
+    font-size: 1rem;
+    text-decoration: none;
+    color: var(--cor-principal);
+}
+.container-login-link:hover{
+    color: var(--cor-secundaria);
+    transition: 0.3s;
+
+}
+.container-login-titulo{
+    font-size: 2rem;
+    margin: 10px;
+}
+
+.container-login-link-cadastro{
+    color: var(--cor-principal);
+    text-decoration: none;
+
+}
+.container-login-link-cadastro:hover{
+    color: var(--cor-secundaria);
+    transition: 0.3s;
+}
+.container-login-form-senha{
+    display: flex;
+}
