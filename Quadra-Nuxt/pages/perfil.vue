@@ -1,17 +1,10 @@
-<style>
+
+[<style scoped>
 
 @import url('../assets/perfil.css');
 </style>
 
-
-
-
-
-
-
-
 <template>
-
 
 <section class="cards-container">
         <a href="###" class="card">
@@ -62,6 +55,8 @@
                 <p class="card-description">Confira o seu pagamento aqui.</p>
             </div>
         </a>
+
+
     </section>
 
    

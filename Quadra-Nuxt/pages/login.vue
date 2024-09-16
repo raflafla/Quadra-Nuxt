@@ -1,10 +1,7 @@
-<style>
+<style scoped>
 
 @import url('../assets/login.css');
 </style>
-
-
-
 
 0
 <template>

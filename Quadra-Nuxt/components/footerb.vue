@@ -1,3 +1,9 @@
+<style scoped>
+@import url(../assets/footer.css);
+</style>
+
+
+
 <template>
     <footer class="rodape">
         <div class="rodape-div">
