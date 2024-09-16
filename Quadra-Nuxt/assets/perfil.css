@@ -1,0 +1,100 @@
+:root{
+    --cor-background: rgb(31, 31, 31);
+    --cor-navbar: rgb(24, 24, 24);
+    --cor-principal: #9b2b90;
+    --cor-secundaria: #682a65;
+    
+}
+.upload-button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #c34de4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+.perfil-imagem {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid var(--cor-principal);
+    transition: transform 0.3s;
+    transform-style: preserve-3d;
+}
+
+.upload-button:hover {
+    background-color: #0056b3;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    background: #c34de4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 300px;
+    width: 100%;
+    margin: 10px; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none; 
+    color: inherit; 
+    display: block;
+    
+    
+}
+
+.card-header {
+    background: black;
+    color: #9d2baf;
+    padding: 16px;
+    text-align: center;
+}
+
+.card-header i {
+    font-size: 2em;
+}
+
+.card-content {
+    padding: 16px;
+}
+
+.card-title {
+    font-size: 1.5em;
+    margin: 0;
+    color: white;
+}
+
+.card-description {
+    font-size: 1em;
+    color: white;
+    margin: 8px 0;
+}
+
+.card-button {
+    display: inline-block;
+    background: #9d2baf;
+    color: #c34de4;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.card-button:hover {
+    background: #9d2baf;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
