@@ -1,8 +1,5 @@
-<style>
-
-
-
-
+<style scoped>
+@import url(../assets/navbar.css);
 </style>
 
 

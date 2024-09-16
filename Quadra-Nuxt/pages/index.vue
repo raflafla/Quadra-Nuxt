@@ -1,3 +1,9 @@
+<style scoped>
+@import url(../assets/index.css);
+</style>
+
+
+
 <template>
         <section class="resumo-principal">
         <img src="../public/imagem1.png" alt="" class="resumo-principal-imagem">
@@ -13,41 +19,10 @@
 
         <h1 class="secao-titulo">Quadras Populares</h1>
         <section class="secao">
-            <div class="secao-item">
-                <h2 class="secao-item-titulo">Ginásio Rendenção</h2>
-                <p class="secao-item-texto">Sistema de quadra multifuncional de alta qualidade, com marcações precisas para basquete e futebol, revestimento antiderrapante
-                e iluminação adequada, localizada no bairro Rendenção.</p>
-                <img src="../public/quadra.jpg" alt="Cruiser" width="300px" class="secao-item-imagem">
-                <p class="secao-item-valor">R$ 100/dia</p>
-                <a  href="#" class="secao-item-botao">Alugar</a>
-            </div>
-            
-            <div class="secao-item">
-                <h2 class="secao-item-titulo">Ginásio Rendenção</h2>
-                <p class="secao-item-texto">Sistema de quadra multifuncional de alta qualidade, com marcações precisas para basquete e futebol, revestimento antiderrapante
-                e iluminação adequada, localizada no bairro Rendenção.</p>
-                <img src="../public/quadra.jpg" alt="Cruiser" width="300px" class="secao-item-imagem">
-                <p class="secao-item-valor">R$ 100/dia</p>
-                <a  href="#" class="secao-item-botao">Alugar</a>
-            </div>
-
-            <div class="secao-item">
-                <h2 class="secao-item-titulo">Ginásio Rendenção</h2>
-                <p class="secao-item-texto">Sistema de quadra multifuncional de alta qualidade, com marcações precisas para basquete e futebol, revestimento antiderrapante
-                e iluminação adequada, localizada no bairro Rendenção.</p>
-                <img src="../public/quadra.jpg" alt="Cruiser" width="300px" class="secao-item-imagem">
-                <p class="secao-item-valor">R$ 100/dia</p>
-                <a  href="#" class="secao-item-botao">Alugar</a>
-            </div>
-
-            <div class="secao-item">
-                <h2 class="secao-item-titulo">Ginásio Rendenção</h2>
-                <p class="secao-item-texto">Sistema de quadra multifuncional de alta qualidade, com marcações precisas para basquete e futebol, revestimento antiderrapante
-                e iluminação adequada, localizada no bairro Rendenção.</p>
-                <img src="../public/quadra.jpg" alt="Cruiser" width="300px" class="secao-item-imagem">
-                <p class="secao-item-valor">R$ 100/dia</p>
-                <a  href="#" class="secao-item-botao">Alugar</a>
-            </div>
+            <quadra/>
+            <quadra/>
+            <quadra/>
+            <quadra/>
         </section>
 
 
