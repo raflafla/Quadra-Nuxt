@@ -9,16 +9,16 @@
 <section class="cards-container">
         <a href="###" class="card">
             <div class="card-header">
-                <img src="https://pbs.twimg.com/media/EXNwfE_WoAMarG5.jpg" alt="Foto de Perfil do Cliente" class="perfil-imagem"/>
+                <img src="https://i.redd.it/t32e9rm0j1511.jpg" alt="Foto de Perfil do Cliente" class="perfil-imagem"/>
             </div>
             <div class="card-content">
                 
                 <p class="card-description">Bahia</p>
             </div>
         </a>
-    </section>
+    
 
-    <section class="cards-container">
+    
         <a href="###" class="card">
             <div class="card-header">
                 <i class="fa-solid fa-address-card"></i>
@@ -28,11 +28,11 @@
                 <p class="card-description">Confira as suas informações aqui.</p>
             </div>
         </a>
-    </section>
+    
 
-    <section class="cards-container">
+    
 
-        <a href="###" class="card">
+        <nuxt-link to="/historico" class="card"> 
             <div class="card-header">
                 <i class="fa-solid fa-clipboard-list"></i>
             </div>
@@ -40,11 +40,11 @@
                 <h2 class="card-title">Histórico de Quadras</h2>
                 <p class="card-description">Confira o seu histórico aqui.</p>
             </div>
-        </a>
-    </section>
+        </nuxt-link>
+    
 
 
-    <section class="cards-container">
+    
 
     <a href="###" class="card">
             <div class="card-header">
