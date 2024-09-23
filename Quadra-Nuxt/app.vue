@@ -25,8 +25,8 @@ const quadras = reactive([
     ])
 
     function alteraAlugado(id){
-    quadras[id].alugado = true;
-}
+        quadras[id].alugado = true;
+    }
 
 
 </script>
