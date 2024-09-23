@@ -1,5 +1,11 @@
+<script setup>
+    const params = defineProps(["quadras", "alteraAlugado"])
+    // vue emit
+</script>
+
 <style scoped>
 @import url(../assets/index.css);
+
 </style>
 
 
@@ -19,10 +25,7 @@
 
         <h1 class="secao-titulo">Quadras Populares</h1>
         <section class="secao">
-            <quadra/>
-            <quadra/>
-            <quadra/>
-            <quadra/>
+            <quadra v-bind:quadras="quadras", v-for="quadra in quadras"/>
         </section>
 
 
