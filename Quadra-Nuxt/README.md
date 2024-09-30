@@ -1,75 +1,11 @@
-# Nuxt 3 Minimal Starter
+# Tarefas
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Paulo
+- Pegar o usuário e mostrar no perfil - Comando: ``localStorage.getItem('user')`` e precisa pegar de volta o objeto ``JSON.parse(user)`` 
+- Criar o botão de __deslogar__ que quando clicado, remove o usuário ``localStorage.removeItem('user')``
+- Quando estiver logado, não deve mostrar o botão "login/cadastro". Pode usar o __v-if__ para isso
 
-## Setup
-
-Make sure to install the dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Rafael
+- O usuário logado não pode voltar para página de login e nem de cadastro
+- Pesquisar como fazer restrição de rotas
+- O usuário __não logado__ não pode ver a página de perfil
