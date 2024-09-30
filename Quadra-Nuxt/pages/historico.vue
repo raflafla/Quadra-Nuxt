@@ -22,8 +22,7 @@ const params = defineProps(["quadras", "alteraAlugado"])
         
       </div>
   
-      
-
+  
     </div>
 
 
