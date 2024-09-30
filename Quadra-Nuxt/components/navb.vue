@@ -2,6 +2,18 @@
 @import url(../assets/navbar.css);
 </style>
 
+<script setup>
+
+const params = defineProps(["quadras", "alteraAlugado","users"])
+
+import { ref } from 'vue';
+
+const user = ref(null);
+
+if (process.client) {
+    user.value = JSON.parse(localStorage.getItem('user'));
+}
+</script>
 
 
 
@@ -15,8 +27,8 @@
             <NuxtLink class="cabecalho_menu_link" to="/historia">Quem Somos <i class="fa-solid fa-question"></i></NuxtLink>
             <NuxtLink class="cabecalho_menu_link" to="/quadras">Download <i class="fa-solid fa-circle-down"></i></NuxtLink> 
             <NuxtLink class="cabecalho_menu_link" to="/contato">Contato <i class="fa-solid fa-phone"></i></NuxtLink>
-            <NuxtLink class="cabecalho_menu_link" to="/perfil">Perfil <i class="fa-solid fa-circle-user"></i></NuxtLink> 
-            <NuxtLink class="cabecalho_menu_link_login" to="/login">Login/Área Exclusiva <i class="fa-solid fa-user"></i></NuxtLink>
+            <NuxtLink class="cabecalho_menu_link" to="/perfil">Perfil <i class="fa-solid fa-circle-user"></i></NuxtLink>
+            <NuxtLink v-if="!user" class="cabecalho_menu_link_login" to="/login">Login/Área Exclusiva <i class="fa-solid fa-user"></i></NuxtLink>
         </nav>
     </header>
 
