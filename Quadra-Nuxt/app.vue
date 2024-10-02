@@ -39,6 +39,14 @@ const quadras = reactive([
     ])
 
 
+    const isLoggedIn = ref(false);
+
+    onMounted(() => {
+    if (typeof window !== 'undefined') {
+        isLoggedIn.value = localStorage.getItem('user') !== null;
+    }
+});
+
 </script>
 
 
@@ -56,8 +64,8 @@ const quadras = reactive([
   </Head>
 
 
-
-  <navb  />
+    <nava v-if="isLoggedIn"/>
+    <navb  v-if="isLoggedIn == false"/>
   <NuxtPage v-bind:quadras="quadras" v-bind:alteraAlugado="alteraAlugado" v-bind:users="users"/>
   <Footerb />
 

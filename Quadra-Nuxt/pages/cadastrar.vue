@@ -25,13 +25,21 @@ function sendform (){
     params.users.push(user)
     alert("Cadastro feito com sucesso")
     console.log(params.users)
+   
 }
 
 function VerificaLogado(){
     if( localStorage.getItem("user") ){
-        // Obrigar a voltar para o início
+      //localStorage.removeItem("user")
+      window.location.href='/'
     }
 }
+
+onMounted(() => {
+    VerificaLogado();
+})
+
+
 
 
 </script>
