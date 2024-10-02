@@ -6,21 +6,21 @@ const quadras = reactive([
             nome: "Campo Society 1",
             preco: 22.90,
             alugado: true,
-            image: ""
+            image: "https://imgur.com/a/vIYfHP3"
         },
         {
             id: 1,
             nome: "Campo Society 2",
             preco: 12.90,
             alugado: true,
-            image: ""
+            image: "https://imgur.com/a/NO97WWQ"
         },
         {
             id: 2,
             nome: "Campo Society 3",
             preco: 25.90,
             alugado: false,
-            image: ""
+            image: "https://imgur.com/a/0WCuGzP"
         }
     ])
 

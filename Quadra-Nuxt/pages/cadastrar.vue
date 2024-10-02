@@ -25,7 +25,7 @@ function sendform (){
     params.users.push(user)
     alert("Cadastro feito com sucesso")
     console.log(params.users)
-   
+    window.location.href='/'
 }
 
 function VerificaLogado(){
@@ -46,7 +46,9 @@ onMounted(() => {
 
 
 
-
+<style scoped>
+@import url('../assets/Cadastro.css');
+</style>
 
 
 
@@ -55,7 +57,7 @@ onMounted(() => {
 <section class="container-login">
         <form class="container-login-form" name="form" v-on:submit.prevent="sendform()">
             <h1 class="container-login-titulo"> Cadastro</h1>
-            <p> Você já tem uma conta? acesse o seu Login. <a href="./Login.html" target="_top"> Clique aqui</a></p>
+            <p> Você já tem uma conta? acesse o seu Login. <NuxtLink to="/login"> Clique aqui</NuxtLink></p>
             <div class="container-login-form-senha">
             <label class="container-login-label">
                 <p class="contaier-login-texto">Nome Completo</p>
