@@ -5,7 +5,7 @@ const quadraSelecionada = reactive({
             nome: "Campo Society 2",
             preco: 12.90,
             alugado: false,
-            image: "",
+            image: "https://i.imgur.com/k2gG6MK.png",
             data: "",
             horas: "",
             id_usuario: null
@@ -17,7 +17,7 @@ const quadras = reactive([
             nome: "Campo Society 1",
             preco: 22.90,
             alugado: false,
-            image: "https://imgur.com/a/vIYfHP3",
+            image: "https://i.imgur.com/Tj5dYLv.png",
             data: "",
             horas: "",
             id_usuario: null
@@ -27,7 +27,7 @@ const quadras = reactive([
             nome: "Campo Society 2",
             preco: 12.90,
             alugado: false,
-            image: "https://imgur.com/a/NO97WWQ",
+            image: "https://i.imgur.com/k2gG6MK.png",
             data: "",
             horas: "",
             id_usuario: null
@@ -37,7 +37,7 @@ const quadras = reactive([
             nome: "Campo Society 3",
             preco: 25.90,
             alugado: false,
-            image: "https://imgur.com/a/0WCuGzP",
+            image: "https://i.imgur.com/8VKqx59.png",
             data: "",
             horas: "",
             id_usuario: null

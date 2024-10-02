@@ -20,7 +20,7 @@
         <h2 class="div1"> <strong>Ginásio Redenção</strong></h2>
         <div class="conteiner">
 
-            <img src="https://placeholder.com/200" class="img"/>
+            <img v-bind:src="params.quadraSelecionada.image" class="img"/>
 
             <div class="div2">
                 <h3> <strong> {{ params.quadraSelecionada.nome }} </strong> </h3>
