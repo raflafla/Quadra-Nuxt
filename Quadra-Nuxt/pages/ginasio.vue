@@ -1,39 +1,45 @@
 <script setup>
 
-    const params = defineProps(["alteraAlugado","quadraSelecionada"])
+    const params = defineProps(["alteraAlugado"])
+
+    let quadraSelecionada = ref(null);
 
     let data = ref("")
     let horas = ref("")
 
-    function Alugar(){
-        params.alteraAlugado(params.quadraSelecionada.id,data,horas)
+    function Alugar(id){
+        params.alteraAlugado(id,data,horas)
         alert("Quadra Alugado com sucesso!")
         //window.location.href = "/perfil"
     }
+
+    onMounted(()=>{
+        quadraSelecionada.value = JSON.parse( localStorage.getItem("quadraSelecionada") )
+    })
 
 </script>
 
 
 <template>
 
-    <section>
+    <section v-if="quadraSelecionada != null" >
         <h2 class="div1"> <strong>Ginásio Redenção</strong></h2>
         <div class="conteiner">
 
-            <img v-bind:src="params.quadraSelecionada.image" class="img"/>
+            <img v-bind:src="quadraSelecionada.image" class="img"/>
 
             <div class="div2">
-                <h3> <strong> {{ params.quadraSelecionada.nome }} </strong> </h3>
+                <h3> <strong> {{ quadraSelecionada.nome }} </strong> </h3>
                 <!-- <p>Uma quadra para você jogar com amigos, com seu time em Campeonato!</p> -->
                 <p> <strong> Preço </strong> </p>
-                <p> <strong>R$ </strong> {{ params.quadraSelecionada.preco }}</p>
+                <p> <strong>R$ </strong> {{ quadraSelecionada.preco }}</p>
 
                 <input type="date" class="cabecalho_menu_link_login" v-model="data"> - <input type="time" class="cabecalho_menu_link_login" v-model="horas">
 
                 <br/>
                 <br/>
 
-                <a href="#" class="cabecalho_menu_link_login" v-on:click="Alugar()">Alugar</a>
+                <a href="#" class="cabecalho_menu_link_login" v-on:click="Alugar(quadraSelecionada.id)">Alugar</a>
             </div>
 
         </div>

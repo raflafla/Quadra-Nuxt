@@ -1,16 +1,5 @@
 <script setup> 
 
-const quadraSelecionada = reactive({
-            id: 1,
-            nome: "Campo Society 2",
-            preco: 12.90,
-            alugado: false,
-            image: "https://i.imgur.com/k2gG6MK.png",
-            data: "",
-            horas: "",
-            id_usuario: null
-        })
-
 const quadras = reactive([
         {
             id: 0,
@@ -55,7 +44,6 @@ const quadras = reactive([
     }
 
 
-
     const users = reactive([
     { name: "João", pass: "123", cpf: "123.456.789-00", email: "joao@example.com", phone: "(11) 91234-5678", type: "padrão" },
     { name: "Maria", pass: "123", cpf: "987.654.321-00", email: "maria@example.com", phone: "(21) 98765-4321", type: "padrão" },
@@ -92,7 +80,7 @@ const quadras = reactive([
 
     <nava v-if="isLoggedIn"/>
     <navb  v-if="isLoggedIn == false"/>
-  <NuxtPage v-bind:quadras="quadras" v-bind:alteraAlugado="alteraAlugado" v-bind:users="users" v-bind:quadraSelecionada="quadraSelecionada"/>
+  <NuxtPage v-bind:quadras="quadras" v-bind:alteraAlugado="alteraAlugado" v-bind:users="users" v-bind:quadraSelecionada="quadraSelecionada" v-bind:atualizaQuadraSelecionada="atualizaQuadraSelecionada"/>
   <Footerb />
 
 </template>

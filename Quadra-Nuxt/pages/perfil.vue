@@ -1,13 +1,10 @@
 
-[<style scoped>
-
-@import url('../assets/perfil.css');
-</style>
 
 <script setup>
 
 
 const params = defineProps(["quadras", "alteraAlugado","users"])
+console.log(params.quadras)
 
 
 import { ref, onMounted } from 'vue'
@@ -75,9 +72,14 @@ onMounted(() => {
 
     </section>
 
-    <div class="secao-p" v-for="quadra in quadras">
-            <quadra v-if=" quadra.alugado == true" v-bind:quadras="quadra" 
-            v-bind:alteraAlugado="alteraAlugado"/>
+    <div class="secao-p" v-for="quadra in params.quadras">
+            <quadra v-if=" quadra.alugado == true" v-bind:quadras="quadra" v-bind:alteraAlugado="alteraAlugado"/>
     </div>
 
 </template>
+
+
+[<style scoped>
+
+@import url('../assets/perfil.css');
+</style>

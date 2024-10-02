@@ -1,14 +1,10 @@
 <script setup>
 
-
 const params = defineProps(["quadras"])
+
+
 </script>
 
-
-
-<style scoped>
-@import url(../assets/quadras.css);
-</style>
 
 <template>
 
@@ -16,11 +12,15 @@ const params = defineProps(["quadras"])
     <h1 class="titulo-quadras">Catálogo Quadras</h1>
     <section class="secao">
 
-        <div v-for="quadra in quadras"> 
+        <template v-for="quadra in params.quadras"> 
             
-            <quadra v-bind:quadras="quadra" />
-        </div>
+            <quadra v-if="quadra.alugado == false" v-bind:quadras="quadra" />
+        </template>
 
         
     </section>
 </template>
+
+<style scoped>
+@import url(../assets/quadras.css);
+</style>
