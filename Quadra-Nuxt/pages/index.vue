@@ -25,7 +25,7 @@
 
         <h1 class="secao-titulo">Quadras Populares</h1>
         <section class="secao">
-            <quadra v-bind:quadras="quadras", v-for="quadra in quadras"/>
+            <quadra  v-bind:quadras="quadra", v-for="quadra in quadras "/>
         </section>
 
 
