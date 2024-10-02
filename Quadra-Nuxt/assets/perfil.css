@@ -102,3 +102,10 @@
     margin-left: 220px;
     
 }
+
+.secao-p{
+    display: flex; 
+    flex-wrap: wrap;  
+    flex: 0 0 30%; 
+    justify-content:space-between;
+}
