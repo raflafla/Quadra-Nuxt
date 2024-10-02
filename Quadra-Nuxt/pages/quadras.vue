@@ -16,7 +16,10 @@ const params = defineProps(["quadras"])
     <h1 class="titulo-quadras">Catálogo Quadras</h1>
     <section class="secao">
 
-        <quadra v-bind:quadras="quadras" v-for="quadra in quadras"/>
+        <div v-for="quadra in quadras"> 
+            
+            <quadra v-bind:quadras="quadra" />
+        </div>
 
         
     </section>

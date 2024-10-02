@@ -89,9 +89,16 @@ strong{
     font-size: 1.5rem;
 }
 
+.secao{
+    display: flex; 
+    flex-wrap: wrap;  
+    flex: 0 0 30%; 
+    justify-content:space-between;
+}
 
-
-
+.secao-titulo{
+    text-align: center;
+}
 
 
 
