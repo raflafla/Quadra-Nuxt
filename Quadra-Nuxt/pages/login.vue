@@ -25,7 +25,12 @@
 
         localStorage.setItem("user", JSON.stringify(user))
         alert("Autenticado com sucesso")
+        window.location.href='/'
     }
+
+
+
+
 </script>
 
 
