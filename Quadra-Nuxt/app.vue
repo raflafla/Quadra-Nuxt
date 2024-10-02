@@ -1,31 +1,57 @@
 <script setup> 
 
+const quadraSelecionada = reactive({
+            id: 1,
+            nome: "Campo Society 2",
+            preco: 12.90,
+            alugado: false,
+            image: "",
+            data: "",
+            horas: "",
+            id_usuario: null
+        })
+
 const quadras = reactive([
         {
             id: 0,
             nome: "Campo Society 1",
             preco: 22.90,
-            alugado: true,
-            image: "https://imgur.com/a/vIYfHP3"
+            alugado: false,
+            image: "https://imgur.com/a/vIYfHP3",
+            data: "",
+            horas: "",
+            id_usuario: null
         },
         {
             id: 1,
             nome: "Campo Society 2",
             preco: 12.90,
-            alugado: true,
-            image: "https://imgur.com/a/NO97WWQ"
+            alugado: false,
+            image: "https://imgur.com/a/NO97WWQ",
+            data: "",
+            horas: "",
+            id_usuario: null
         },
         {
             id: 2,
             nome: "Campo Society 3",
             preco: 25.90,
             alugado: false,
-            image: "https://imgur.com/a/0WCuGzP"
+            image: "https://imgur.com/a/0WCuGzP",
+            data: "",
+            horas: "",
+            id_usuario: null
         }
     ])
 
-    function alteraAlugado(id){
-        quadras[id].alugado = true;
+    function alteraAlugado(id,data,horas){
+        quadras.map((q)=>{
+            if(q.id == id){
+                q.alugado = true
+                q.data = data
+                q.horas = horas
+            }
+        })
     }
 
 
@@ -66,7 +92,7 @@ const quadras = reactive([
 
     <nava v-if="isLoggedIn"/>
     <navb  v-if="isLoggedIn == false"/>
-  <NuxtPage v-bind:quadras="quadras" v-bind:alteraAlugado="alteraAlugado" v-bind:users="users"/>
+  <NuxtPage v-bind:quadras="quadras" v-bind:alteraAlugado="alteraAlugado" v-bind:users="users" v-bind:quadraSelecionada="quadraSelecionada"/>
   <Footerb />
 
 </template>
