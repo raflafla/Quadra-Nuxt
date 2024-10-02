@@ -28,10 +28,7 @@ onMounted(() => {
   }
 })
 
-
-
 </script>
-
 
 <template>
 
@@ -73,18 +70,14 @@ onMounted(() => {
     </section>
 
     <section>
-
-        <div class="titulo">
-        <h1>Histórico de Quadras</h1>
-
-            <div v-for="quadra in quadras">
-                <quadra v-if=" quadra.alugado == true" v-bind:quadras="quadra" v-bind:alteraAlugado="alteraAlugado"/>
-            </div>
-
-    </div>
+  
+        <h1 class="titulo">Histórico de Quadras</h1>
 
     </section>
 
-   
+    <div class="secao-p" v-for="quadra in quadras">
+            <quadra v-if=" quadra.alugado == true" v-bind:quadras="quadra" 
+            v-bind:alteraAlugado="alteraAlugado"/>
+    </div>
 
 </template>
