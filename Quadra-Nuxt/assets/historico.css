@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+
+:root{
+    --cor-background: rgb(31, 31, 31);
+    --cor-navbar: rgb(24, 24, 24);
+    --cor-principal: #c34de4;
+    --cor-secundaria: #9d2baf;
+}
+.secao{
+    display: flex; 
+    flex-wrap: wrap;  
+    flex: 0 0 30%; 
+    justify-content:space-between;
+   
+}
+.secao-item{
+    width: 30%;
+    text-align: center;
+    margin: 20px;
+}
+.secao-titulo{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.secao-item-titulo{
+    font-size: 1.5rem;
+}
+
+.secao-item-texto{
+    font-size: 1rem;
+}
+
+.secao-item-imagem{
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.secao-item-valor{
+    color: var(--cor-principal);
+    font-size: 1.1rem;
+}
+.secao-item-botao{
+    color: white;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 10px; 
+    border-radius: 12px;
+    background-color: var(--cor-principal);
+    text-align: center;
+}
+.secao-item-botao:hover{
+    background-color: var(--cor-secundaria);
+    transition: 0.3s;
+    cursor: pointer;
+}
+.titulo-quadras{
+    text-align: center;
+}

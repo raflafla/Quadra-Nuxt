@@ -11,6 +11,8 @@ const params = defineProps(["quadras"])
 </style>
 
 <template>
+
+
     <h1 class="titulo-quadras">Catálogo Quadras</h1>
     <section class="secao">
 

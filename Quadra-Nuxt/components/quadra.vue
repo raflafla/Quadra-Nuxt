@@ -19,7 +19,7 @@ console.log(params.quadras)
             <p class="secao-item-texto"></p>
             <img src="" alt="" width="300px" class="secao-item-imagem">
             <p class="secao-item-valor">{{ params.quadras.preco }}</p>
-            <a  href="#" class="secao-item-botao">Alugar</a>
+            <a              href="#" class="secao-item-botao"> Alugar </a>
         </div>
         
 </template>
