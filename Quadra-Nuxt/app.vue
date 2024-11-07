@@ -1,37 +1,5 @@
 <script setup> 
 
-const quadras = reactive([
-        {
-            id: 0,
-            nome: "Campo Society 1",
-            preco: 22.90,
-            alugado: false,
-            image: "https://i.imgur.com/Tj5dYLv.png",
-            data: "",
-            horas: "",
-            id_usuario: null
-        },
-        {
-            id: 1,
-            nome: "Campo Society 2",
-            preco: 12.90,
-            alugado: false,
-            image: "https://i.imgur.com/k2gG6MK.png",
-            data: "",
-            horas: "",
-            id_usuario: null
-        },
-        {
-            id: 2,
-            nome: "Campo Society 3",
-            preco: 25.90,
-            alugado: false,
-            image: "https://i.imgur.com/8VKqx59.png",
-            data: "",
-            horas: "",
-            id_usuario: null
-        }
-    ])
 
     function alteraAlugado(id,data,horas){
         quadras.map((q)=>{
