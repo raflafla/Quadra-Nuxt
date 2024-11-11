@@ -33,16 +33,13 @@
         <div class="section-quem-somos-container">
             <h2 class="section-quem-somos-titulo">Quem Somos?</h2>
             <p class="section-quem-somos-texto">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum fuga consequuntur esse quibusdam reprehenderit ipsa amet magnam enim. Ad veritati
-            s laborum quis expedita nihil est rem architecto tempore accusantium recusandae. </p>
+                Somos uma equipe apaixonada por esportes e tecnologia, com o objetivo de tornar a prática esportiva mais acessível para todos. Nosso foco é oferecer uma plataforma que simplifique a busca por quadras e facilite a reserva de espaços, tornando o processo mais eficiente e prático para usuários de todas as idades. </p>
             <p class="section-quem-somos-texto">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum fuga consequuntur esse quibusdam reprehenderit ipsa amet magnam enim. Ad veritati
-                s laborum quis expedita nihil est rem architecto tempore accusantium recusandae. </p>
-            <p class="section-quem-somos-texto">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum fuga consequuntur esse quibusdam reprehenderit ipsa amet magnam enim. Ad veritati
-                s laborum quis expedita nihil est rem architecto tempore accusantium recusandae. </p>
+                No Quadra Finder, acreditamos que o esporte é uma ferramenta poderosa para melhorar a qualidade de vida, promover o bem-estar e unir pessoas. Por isso, trabalhamos para garantir que nossos usuários encontrem facilmente o local ideal para a prática esportiva, com informações claras sobre disponibilidade, preços e avaliações.
+
+ </p>
         </div>
-        <img src="../public/shshshshs.jpg" alt="" class="section-quem-somos-imagem">
+        <img src="../public/shshshshs.webp" alt="" class="section-quem-somos-imagem">
     </section>
 
 </template>

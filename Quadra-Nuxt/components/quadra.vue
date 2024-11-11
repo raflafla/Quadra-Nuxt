@@ -1,10 +1,10 @@
 <script setup>
 
 
-const params = defineProps(["quadras", "quadraSelecionada"])
+const params = defineProps(["quadra", "quadraSelecionada"])
 
  function alugar(){
-    localStorage.setItem("quadraSelecionada", JSON.stringify( params.quadras));
+    localStorage.setItem("quadraSelecionada", JSON.stringify( params.quadra));
     window.location.href = "/ginasio";
 }
 
@@ -13,11 +13,11 @@ const params = defineProps(["quadras", "quadraSelecionada"])
 
 <template>
 
-        <div class="secao-item" v-if="quadras">
-            <h2 class="secao-item-titulo">{{ params.quadras.nome }}</h2>
+        <div class="secao-item" v-if="quadra">
+            <h2 class="secao-item-titulo">{{ params.quadra.nome }}</h2>
             <p class="secao-item-texto"></p>
-            <img v-bind:src="params.quadras.image" alt="" width="300px" class="secao-item-imagem">
-            <p class="secao-item-valor">{{ params.quadras.preco }}</p>
+            <img v-bind:src="params.quadra.image" alt="" width="300px" class="secao-item-imagem">
+            <p class="secao-item-valor">{{ params.quadra.preco }}</p>
             <a href="#" class="secao-item-botao" v-on:click="alugar()"> Alugar </a>
         </div>
         
