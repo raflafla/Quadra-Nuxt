@@ -25,7 +25,27 @@
 
         <h1 class="secao-titulo">Quadras Populares</h1>
         <section class="secao">
-            <quadra  v-bind:quadras="quadra", v-for="quadra in quadras "/>
+            <div class="secao-item">
+            <h2 class="secao-item-titulo">Quadra</h2>
+            <p class="secao-item-texto"></p>
+            <img alt="" width="300px" class="secao-item-imagem">
+            <p class="secao-item-valor">R$ 20</p>
+            <a href="#" class="secao-item-botao" v-on:click="alugar()"> Alugar </a>
+        </div>
+        <div class="secao-item">
+            <h2 class="secao-item-titulo">Quadra</h2>
+            <p class="secao-item-texto"></p>
+            <img alt="" width="300px" class="secao-item-imagem">
+            <p class="secao-item-valor">R$ 20</p>
+            <a href="#" class="secao-item-botao" v-on:click="alugar()"> Alugar </a>
+        </div>
+        <div class="secao-item">
+            <h2 class="secao-item-titulo">Quadra</h2>
+            <p class="secao-item-texto"></p>
+            <img src="" alt="" width="300px" class="secao-item-imagem">
+            <p class="secao-item-valor">R$ 20</p>
+            <a href="#" class="secao-item-botao" v-on:click="alugar()"> Alugar </a>
+        </div>
         </section>
 
 
