@@ -1,32 +1,39 @@
 
 <script setup>
+import axios from 'axios';
 
-const params = defineProps(["users"])
+const user = reactive([])
 
-
-const user = reactive({
-    name:"", 
-    pass:"",
-    cpf: "",
-    email: "",
-    phone: "",
-    type: "padrão"
-})
-let confirm = ref("")
+async function buscartodos(){
+    let resposta = await axios.get('http://10.60.44.36:3000/user/read')
+    user.value = resposta
+    console.log(user.value)
+}
 
 
-
-function sendform (){
+async function sendform (){
 
     if(user.pass != confirm.value){
         alert("Senha não compativeis")
         return
     }
-    params.users.push(user)
+    await axios.post('http://10.60.44.36:3000/user/create', {
+        name: user.name, 
+        pass: user.pass,
+        cpf: user.cpf,
+        email: user.email,
+        phone: user.phone
+
+    })
     alert("Cadastro feito com sucesso")
     console.log(params.users)
     window.location.href='/'
 }
+
+onMounted(() => {
+    buscartodos()
+    console.log('aqui')
+});
 
 function VerificaLogado(){
     if( localStorage.getItem("user") ){
@@ -35,13 +42,12 @@ function VerificaLogado(){
     }
 }
 
+
+
+
 onMounted(() => {
     VerificaLogado();
 })
-
-
-
-
 </script>
 
 
@@ -63,15 +69,22 @@ onMounted(() => {
                 <p class="contaier-login-texto">Nome Completo</p>
                 <input type="text" required placeholder="Digie seu nome" class="container-login-input" name="user" v-model="user.name">
             </label>
-            <label class="container-login-label">
-                <p class="contaier-login-texto">Nome de Usuário</p>
-                <input type="text" required placeholder="Digie seu usuário" class="container-login-input" name="user" v-model="user.user">
-            </label>
         </div>
         <div class="container-login-form-senha">
             <label class="container-login-label">
                 <p class="contaier-login-texto">Email</p>
                 <input type="email" required placeholder="Digie seu Email" class="container-login-input" name="user" v-model="user.email">
+            </label>
+
+            <label class="container-login-label">
+                <p class="contaier-login-texto">CPF</p>
+                <input type="" required placeholder="Digie seu CPF" class="container-login-input" name="user" v-model="user.cpf">
+            </label>
+        </div>
+        <div class="container-login-form-senha">
+            <label class="container-login-label">
+                <p class="contaier-login-texto">Phone</p>
+                <input type="" required placeholder="Digie seu Phone" class="container-login-input" name="user" v-model="user.phone">
             </label>
         </div>
             <div class="container-login-form-senha">

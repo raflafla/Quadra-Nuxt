@@ -12,14 +12,6 @@
     }
 
 
-    const users = reactive([
-    { name: "João", pass: "123", cpf: "123.456.789-00", email: "joao@example.com", phone: "(11) 91234-5678", type: "padrão" },
-    { name: "Maria", pass: "123", cpf: "987.654.321-00", email: "maria@example.com", phone: "(21) 98765-4321", type: "padrão" },
-    { name: "Carlos", pass: "123", cpf: "111.222.333-44", email: "carlos@example.com", phone: "(31) 99876-5432", type: "padrão" },
-    { name: "Ana", pass: "123", cpf: "555.666.777-88", email: "ana@example.com", phone: "(41) 99888-9999", type: "padrão" },
-    { name: "Luiz", pass: "123", cpf: "222.333.444-55", email: "luiz@example.com", phone: "(51) 98765-1234", type: "padrão" },
-    ])
-
 
     const isLoggedIn = ref(false);
 

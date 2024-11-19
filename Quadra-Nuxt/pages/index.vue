@@ -19,7 +19,7 @@
             <p> Na <strong>Quadra Finder</strong>, facilitamos sua busca por quadras de esportes disponíveis para aluguel perto de você. Com apenas alguns cliques, 
             você pode encontrar a quadra perfeita para futebol, basquete, vôlei, tênis e muito mais. Nossa plataforma é intuitiva e fácil de usar, permitindo que você veja a 
             disponibilidade em tempo real, compare preços e faça reservas diretamente online.</p>
-            <a href="#" class="resumo-principal-botao">Quadras</a>
+            <a href="quadras" class="resumo-principal-botao">Quadras</a>
         </div>
     </section>
 
