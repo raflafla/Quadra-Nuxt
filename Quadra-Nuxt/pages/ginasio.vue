@@ -2,10 +2,9 @@
 
     const params = defineProps(["alteraAlugado"])
 
-     function pagar(){
-    localStorage.setItem("quadraSelecionada", JSON.stringify( params.quadra));
-    window.location.href = "/pagamento";
-}
+    function pagar(){
+        window.location.href = "/pagamento";
+    }
 
 
     let quadraSelecionada = ref(null);

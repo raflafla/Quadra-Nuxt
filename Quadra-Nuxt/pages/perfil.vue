@@ -79,7 +79,7 @@ onMounted(() => {
 </template>
 
 
-[<style scoped>
+<style scoped>
 
 @import url('../assets/perfil.css');
 </style>
