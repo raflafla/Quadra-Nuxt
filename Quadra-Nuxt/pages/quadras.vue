@@ -7,8 +7,12 @@ async function buscartodos(){
     let resposta = await axios.get('http://10.60.44.36:3000/quadra/read')
     quadras.value = resposta.data.db
     console.log(quadras.value)
+    
 }
 
+function oi(){
+    console.log(quadras.value[6].name)
+}
 
 
 onMounted(() => {
@@ -27,7 +31,7 @@ onMounted(() => {
     <section class="secao">
 
         <template v-for="quadra in quadras.value"> 
-            <quadra v-if="quadra.alugado == false" v-bind:quadra="quadra" />
+            <quadra v-bind:quadra="quadra"/>
         </template>
 
         

@@ -23,13 +23,13 @@
 <template>
 
     <section v-if="quadraSelecionada != null" >
-        <h2 class="div1"> <strong>Ginásio Redenção</strong></h2>
+        <h2 class="div1"> <strong>{{ quadraSelecionada.name }}</strong></h2>
         <div class="conteiner">
 
-            <img v-bind:src="quadraSelecionada.image" class="img"/>
+            <img v-bind:src="quadraSelecionada.photos" class="img"/>
 
             <div class="div2">
-                <h3> <strong> {{ quadraSelecionada.nome }} </strong> </h3>
+                <h3> <strong> {{ quadraSelecionada.name }} </strong> </h3>
                 <!-- <p>Uma quadra para você jogar com amigos, com seu time em Campeonato!</p> -->
                 <p> <strong> Preço </strong> </p>
                 <p> <strong>R$ </strong> {{ quadraSelecionada.preco }}</p>

@@ -1,6 +1,20 @@
 <script setup>
-    const params = defineProps(["quadras", "alteraAlugado"])
-    // vue emit
+    import axios from 'axios';
+
+const quadras = reactive([])
+
+async function buscartodos(){
+    let resposta = await axios.get('http://10.60.44.36:3000/quadra/read')
+    quadras.value = resposta.data.db
+    console.log(quadras.value)
+    
+}
+
+onMounted(() => {
+    buscartodos()
+    console.log('aqui')
+});
+
 </script>
 
 <style scoped>
@@ -24,29 +38,10 @@
     </section>
 
         <h1 class="secao-titulo">Quadras Populares</h1>
-        <section class="secao">
-            <div class="secao-item">
-            <h2 class="secao-item-titulo">Quadra</h2>
-            <p class="secao-item-texto"></p>
-            <img alt="" width="300px" class="secao-item-imagem">
-            <p class="secao-item-valor">R$ 20</p>
-            <a href="#" class="secao-item-botao" v-on:click="alugar()"> Alugar </a>
-        </div>
-        <div class="secao-item">
-            <h2 class="secao-item-titulo">Quadra</h2>
-            <p class="secao-item-texto"></p>
-            <img alt="" width="300px" class="secao-item-imagem">
-            <p class="secao-item-valor">R$ 20</p>
-            <a href="#" class="secao-item-botao" v-on:click="alugar()"> Alugar </a>
-        </div>
-        <div class="secao-item">
-            <h2 class="secao-item-titulo">Quadra</h2>
-            <p class="secao-item-texto"></p>
-            <img src="" alt="" width="300px" class="secao-item-imagem">
-            <p class="secao-item-valor">R$ 20</p>
-            <a href="#" class="secao-item-botao" v-on:click="alugar()"> Alugar </a>
-        </div>
-        </section>
+       
+        <template v-for="quadra in quadras"> 
+            <quadra v-bind:quadra="quadra"/>
+        </template>
 
 
     <section class="section-quem-somos">
