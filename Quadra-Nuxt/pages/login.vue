@@ -1,35 +1,38 @@
 <script setup>
-    const params = defineProps(["users"])
-    let email = ref("")
-    let pass = ref("")
-    
-    
-    let user = {
-        name: "", pass: "", cpf: "", email: "", phone: "", type: "" ,
+import axios from "axios";
+import { ref, onMounted } from "vue";
+
+const email = ref("");
+const pass = ref("");
+const users = ref([]);
+
+async function buscartodos() {
+    try {
+        let resposta = await axios.get('http://10.60.44.36:3000/user/read');
+        users.value = resposta.data.list_users;
+        console.log(users.value);
+    } catch (error) {
+        console.error("Erro ao buscar usuários:", error);
+    }
+}
+
+onMounted(() => {
+    buscartodos();
+});
+
+function authenticate() {
+    const user = users.value.find(u => u.email === email.value && u.pass === pass.value);
+
+    if (!user) {
+        alert("Usuário não encontrado");
+        localStorage.removeItem("user");
+        return;
     }
 
-    function authenticate(){
-         params.users.map(u => {
-            
-            if(u.email == email.value && u.pass == pass.value){
-                
-                user = u
-            }
-        } )
-
-        if(user.name == "" || user.name == null){
-            alert("User não encontrado ")
-            localStorage.removeItem("user")
-            return
-        }
-
-        localStorage.setItem("user", JSON.stringify(user))
-        alert("Autenticado com sucesso")
-        window.location.href='/'
-    }
-
-
-
+    localStorage.setItem("user", JSON.stringify(user));
+    alert("Autenticado com sucesso");
+    window.location.href = '/';
+}
 </script>
 
 
