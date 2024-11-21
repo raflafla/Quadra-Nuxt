@@ -2,6 +2,12 @@
 
     const params = defineProps(["alteraAlugado"])
 
+     function pagar(){
+    localStorage.setItem("quadraSelecionada", JSON.stringify( params.quadra));
+    window.location.href = "/pagamento";
+}
+
+
     let quadraSelecionada = ref(null);
 
     let data = ref("")
@@ -39,7 +45,7 @@
                 <br/>
                 <br/>
 
-                <a href="#" class="cabecalho_menu_link_login" v-on:click="Alugar(quadraSelecionada.id)">Alugar</a>
+                <a href="#" class="cabecalho_menu_link_login" v-on:click="pagar(quadraSelecionada.id)">Pagar</a>
             </div>
 
         </div>
