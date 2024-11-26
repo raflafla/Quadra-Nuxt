@@ -18,7 +18,7 @@ const params = defineProps(["quadra", "quadraSelecionada"])
             <p class="secao-item-texto"></p>
             <img v-bind:src="params.quadra.photos" alt="" width="300px" class="secao-item-imagem">
             <p class="secao-item-valor">{{ params.quadra.preco }}</p>
-            <a href="#" class="secao-item-botao" v-on:click="alugar()"> Alugar </a>
+            <a href="#" class="secao-item-botao" v-on:click="alugar()"> {{params.quadra.alugado}} </a>
         </div>
         
 </template>

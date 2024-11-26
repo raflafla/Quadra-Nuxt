@@ -1,21 +1,27 @@
-<script>
-import axios from 'axios';
- 
-    let quadraSelecionada = ref(null);
+<script setup>
+  import axios from 'axios';
+  // Usando 'ref' para quadraSelecionada
+  let quadraSelecionada = ref(null);
 
-     onMounted(()=>{
-        quadraSelecionada.value = JSON.parse( localStorage.getItem("quadraSelecionada") )
-      
-    })
+  // Usando onMounted para pegar os dados do localStorage corretamente
+  onMounted(() => {
+    const quadra = localStorage.getItem("quadraSelecionada");
+    if (quadra) {
+      quadraSelecionada.value = JSON.parse(quadra);
+    }
+  });
 
-  const dadosCliente = ref({
-        nome: '',
-        endereco: '',
-        cartao: '',
-        expiracao: '',
-        cvv: '',
-        total: 0
-      });
+  // Dados do cliente reativos
+  const dadosCliente = reactive({
+    nome: '',
+    endereco: '',
+    cartao: '',
+    expiracao: '',
+    cvv: '',
+    total: 0
+  });
+
+  // Usando 'ref' para 'compraProcessada', que é um valor simples
   const compraProcessada = ref(false);
 
   // Função para processar a compra
@@ -27,21 +33,32 @@ import axios from 'axios';
       dadosCliente.expiracao &&
       dadosCliente.cvv
     ) {
-      compraProcessada.value = true;
-
       try {
+        console.log(quadraSelecionada)
+        let resposta= await axios.post('http://10.60.44.32:3000/location/create', {
+          iduser: 1,
+          idcourt: quadraSelecionada.id,
+          date: new Date().toISOString() 
+        });
+
+        await axios.put(`http://10.60.44.32:3000/quadra/update/${id}`, {
+          alugado: "Alugado"
+        })
+
         // Enviando os dados para o servidor
-        await axios.post('http://10.60.44.36:3000/payment/create', {
-          method: dadosCliente.cartao,  // Exemplo de como acessar os dados corretamente
+        await axios.post('http://10.60.44.32:3000/payment/create', {
+          method: dadosCliente.cartao,
           total: dadosCliente.total,
-          date: new Date().toISOString(),  // Exemplo de como formatar a data
+          date: new Date().toISOString(),
           iduser: 1,  // Substitua por um valor real
-          idlocation: 1,  // Substitua por um valor real
+          idlocation: resposta.data.location_created.id,
           cvv: dadosCliente.cvv,
           numbercard: dadosCliente.cartao,
           dateexpiration: dadosCliente.expiracao,
           address: dadosCliente.endereco
         });
+        compraProcessada.value = true; 
+        window.location.href = "/perfil";
 
         // Aqui você pode definir algum feedback visual para o usuário.
       } catch (error) {
@@ -51,63 +68,50 @@ import axios from 'axios';
   };
 </script>
 
-
-
-
-
-
-
 <template>
   <div class="checkout-form">
-    <h1 class="checkout-titulo">Finalizar Compra</h1>
-
-
-    
-        
+    <h1 class="checkout-titulo">Finalizar Compra</h1>        
     
     <form @submit.prevent="processarCompra">
       <div class="campo">
-        <label for="nome">Nome Completo</label>
+        <label>Nome Completo</label>
         <input type="text" v-model="dadosCliente.nome" required placeholder="Digite seu nome">
       </div>
 
       <div class="campo">
-        <label for="endereco">Endereço</label>
+        <label>Endereço</label>
         <input type="text" v-model="dadosCliente.endereco" required placeholder="Digite seu endereço">
       </div>
 
       <div class="campo">
-        <label for="cartao">Número do Cartão</label>
+        <label>Número do Cartão</label>
         <input type="text" v-model="dadosCliente.cartao" required placeholder="Digite o número do seu cartão">
       </div>
 
       <div class="campo">
-        <label for="expiracao">Data de Expiração</label>
+        <label>Data de Expiração</label>
         <input type="month" v-model="dadosCliente.expiracao" required>
       </div>
 
       <div class="campo">
-        <label for="cvv">CVV</label>
+        <label>CVV</label>
         <input type="number" v-model="dadosCliente.cvv" required placeholder="CVV do cartão">
       </div>
 
       <div class="campo">
-        <label for="total">Total</label>
-        <input type="text"  :value="quadraSelecionada.preco" disabled>
+        <label>Total</label>
+        <input type="text" :value="quadraSelecionada?.preco || 0" disabled>
       </div>
 
       <button type="submit" class="checkout-botao">Confirmar Compra</button>
     </form>
 
-    <div v-if="compraProcessada" class="sucesso">
+    <div v-if="compraProcessada.value" class="sucesso">
       <h2>Compra Finalizada com Sucesso!</h2>
     </div>
   </div>
 </template>
 
-
-
 <style scoped>
 @import url("../assets/pagamento.css");
-
 </style>

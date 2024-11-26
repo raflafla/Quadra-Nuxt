@@ -34,10 +34,10 @@
             <img v-bind:src="quadraSelecionada.photos" class="img"/>
 
             <div class="div2">
-                <h3> <strong> {{ quadraSelecionada.name }} </strong> </h3>
+                <h3> {{ quadraSelecionada.name }} </h3>
                 <!-- <p>Uma quadra para você jogar com amigos, com seu time em Campeonato!</p> -->
-                <p> <strong> Preço </strong> </p>
-                <p> <strong>R$ </strong> {{ quadraSelecionada.preco }}</p>
+                <p> Preço </p>
+                <p> R$ {{ quadraSelecionada.preco }}</p>
 
                 <input type="date" class="cabecalho_menu_link_login" v-model="data"> - <input type="time" class="cabecalho_menu_link_login" v-model="horas">
 

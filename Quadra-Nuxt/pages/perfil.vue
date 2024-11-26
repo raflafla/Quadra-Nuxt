@@ -1,14 +1,26 @@
 
 
 <script setup>
+import axios from 'axios';
 
-
-const params = defineProps(["quadras", "alteraAlugado","users"])
+const params = defineProps(["alteraAlugado","users"])
 console.log(params.quadras)
 
+const location = reactive([])
 
-import { ref, onMounted } from 'vue'
+async function buscartodos(){
+    let resposta = await axios.get('http://10.60.44.32:3000/location/read')
+    location.value = resposta.data.db
+    console.log(location.value)
+    
+}
 
+async function buscaquadra(id){
+    let resposta = await axios.get(`http://10.60.44.32:3000/quadra/show/${id}`)
+    console.log(resposta.data.db)
+    return resposta.data.db
+    
+}
 
 const user = ref(null)
 
@@ -23,6 +35,8 @@ onMounted(() => {
   if (storedUser) {
     user.value = JSON.parse(storedUser)
   }
+  buscartodos()
+    //location.value = JSON.parse(storedLocation)
 })
 
 </script>
@@ -72,8 +86,9 @@ onMounted(() => {
 
     </section>
 
-    <div class="secao-p" v-for="quadra in params.quadras">
-            <quadra v-if=" quadra.alugado == true" v-bind:quadras="quadra" v-bind:alteraAlugado="alteraAlugado"/>
+    <div class="secao-p" v-for="l in location.value">
+            <p>{{l.date}}</p>
+            <quadra v-bind:quadra="buscaquadra(l.idcourt)"/>
     </div>
 
 </template>
