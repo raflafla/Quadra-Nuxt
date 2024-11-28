@@ -2,10 +2,15 @@
   import axios from 'axios';
   // Usando 'ref' para quadraSelecionada
   let quadraSelecionada = ref(null);
+  let data = ref(null);
+  let horas = ref(null);
 
   // Usando onMounted para pegar os dados do localStorage corretamente
   onMounted(() => {
     const quadra = localStorage.getItem("quadraSelecionada");
+
+    data.value = localStorage.getItem("data");
+
     if (quadra) {
       quadraSelecionada.value = JSON.parse(quadra);
     }
@@ -34,14 +39,17 @@
       dadosCliente.cvv
     ) {
       try {
+        console.log("quadraSelecionada")
         console.log(quadraSelecionada)
+        console.log(quadraSelecionada.value.id)
+        console.log(data.value)
         let resposta= await axios.post('http://10.60.44.32:3000/location/create', {
           iduser: 1,
-          idcourt: quadraSelecionada.id,
-          date: new Date().toISOString() 
+          idcourt: quadraSelecionada.value.id,
+          date: data.value
         });
 
-        await axios.put(`http://10.60.44.32:3000/quadra/update/${id}`, {
+        await axios.put(`http://10.60.44.32:3000/quadra/update/${quadraSelecionada.value.id}`, {
           alugado: "Alugado"
         })
 

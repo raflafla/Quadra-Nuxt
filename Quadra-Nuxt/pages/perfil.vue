@@ -6,19 +6,19 @@ import axios from 'axios';
 const params = defineProps(["alteraAlugado","users"])
 console.log(params.quadras)
 
-const location = reactive([])
+const location = reactive([]);
+const quadras = reactive([]);
+
 
 async function buscartodos(){
     let resposta = await axios.get('http://10.60.44.32:3000/location/read')
     location.value = resposta.data.db
-    console.log(location.value)
-    
+    await Promise.all(location.value.map(l => buscaquadra(l.idcourt)));    
 }
 
 async function buscaquadra(id){
     let resposta = await axios.get(`http://10.60.44.32:3000/quadra/show/${id}`)
-    console.log(resposta.data.db)
-    return resposta.data.db
+    quadras[id] = resposta.data.db
     
 }
 
@@ -87,8 +87,8 @@ onMounted(() => {
     </section>
 
     <div class="secao-p" v-for="l in location.value">
-            <p>{{l.date}}</p>
-            <quadra v-bind:quadra="buscaquadra(l.idcourt)"/>
+        <p>{{l.date}}</p>
+        <quadra v-bind:quadra="quadras[l.idcourt]"  v-bind:telaorigem="'perfil'"/>
     </div>
 
 </template>

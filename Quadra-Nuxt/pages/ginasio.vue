@@ -1,23 +1,19 @@
 <script setup>
 
     const params = defineProps(["alteraAlugado"])
+    let data = ref("")
+    let horas = ref("")
 
     function pagar(){
+        console.log(data.value)
+        localStorage.setItem("data", JSON.stringify( data.value));
         window.location.href = "/pagamento";
     }
 
 
     let quadraSelecionada = ref(null);
 
-    let data = ref("")
-    let horas = ref("")
-
-    function Alugar(id){
-        params.alteraAlugado(id,data,horas)
-        alert("Quadra Alugado com sucesso!")
-        //window.location.href = "/perfil"
-    }
-
+ 
     onMounted(()=>{
         quadraSelecionada.value = JSON.parse( localStorage.getItem("quadraSelecionada") )
     })

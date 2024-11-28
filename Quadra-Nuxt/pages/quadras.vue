@@ -31,7 +31,7 @@ onMounted(() => {
     <section class="secao">
 
         <template v-for="quadra in quadras.value"> 
-            <quadra v-bind:quadra="quadra"/>
+            <quadra v-bind:quadra="quadra" v-bind:telaorigem="'quadras'"/>
         </template>
 
         
