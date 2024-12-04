@@ -11,13 +11,13 @@ const quadras = reactive([]);
 
 
 async function buscartodos(){
-    let resposta = await axios.get('http://10.60.44.32:3000/location/read')
+    let resposta = await axios.get('http://10.60.44.32:3001/location/read')
     location.value = resposta.data.db
     await Promise.all(location.value.map(l => buscaquadra(l.idcourt)));    
 }
 
 async function buscaquadra(id){
-    let resposta = await axios.get(`http://10.60.44.32:3000/quadra/show/${id}`)
+    let resposta = await axios.get(`http://10.60.44.32:3001/quadra/show/${id}`)
     quadras[id] = resposta.data.db
     
 }

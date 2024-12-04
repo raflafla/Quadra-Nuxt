@@ -1,80 +1,91 @@
+@import url("../assets/pagamento.css");
+
 :root {
-    --cor-background: rgb(31, 31, 31);
-    --cor-navbar: rgb(24, 24, 24);
-    --cor-principal: #c34de4;
-    --cor-secundaria: #9d2baf;
+  --cor-background: rgb(31, 31, 31);
+  --cor-navbar: rgb(24, 24, 24);
+  --cor-principal: #c34de4;
+  --cor-secundaria: #9d2baf;
 }
 
 body {
-    margin: 0;
-    background-color: var(--cor-background);
-    font-family: "Roboto Mono", monospace;
-    color: white;
+  margin: 0;
+  background-color: var(--cor-background);
+  font-family: "Roboto Mono", monospace;
+  color: white;
 }
 
 .checkout-form {
-    background-color: var(--cor-navbar);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    width: 100%;
-    max-width: 600px;
-    margin: 50px auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  background-color: var(--cor-navbar);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 600px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .checkout-titulo {
-    font-size: 1.8rem;
-    text-align: center;
-    margin-bottom: 30px;
-    color: var(--cor-principal);
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--cor-principal);
 }
 
 .campo {
-    width: 100%;
-    margin-bottom: 20px;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .campo label {
-    display: block;
-    font-size: 1rem;
-    margin-bottom: 5px;
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 5px;
 }
 
 .campo input {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #fff;
-    color: var(--cor-background);
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  color: var(--cor-background);
+}
+
+.campo-expiracao {
+  display: flex;
+  gap: 10px; /* Espaçamento entre os campos */
+}
+
+.campo-expiracao input {
+  width: 48%; /* Largura de cada campo, deixando espaço para os dois */
 }
 
 button.checkout-botao {
-    padding: 12px 0;
-    width: 100%;
-    background-color: var(--cor-principal);
-    color: white;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  padding: 12px 0;
+  width: 100%;
+  background-color: var(--cor-principal);
+  color: white;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 button.checkout-botao:hover {
-    background-color: var(--cor-secundaria);
+  background-color: var(--cor-secundaria);
 }
 
 .sucesso {
-    margin-top: 20px;
-    background-color: #d4edda;
-    padding: 10px;
-    border: 1px solid #c3e6cb;
-    border-radius: 4px;
-    color: #155724;
-    text-align: center;
+  margin-top: 20px;
+  background-color: #d4edda;
+  padding: 10px;
+  border: 1px solid #c3e6cb;
+  border-radius: 4px;
+  color: #155724;
+  text-align: center;
 }

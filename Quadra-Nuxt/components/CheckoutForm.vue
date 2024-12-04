@@ -1,22 +1,26 @@
 <script setup>
   import axios from 'axios';
-  // Usando 'ref' para quadraSelecionada
+
+  // Inicializando como null para evitar acessar undefined
   let quadraSelecionada = ref(null);
+  let userselecionado = ref(null)
   let data = ref(null);
   let horas = ref(null);
 
-  // Usando onMounted para pegar os dados do localStorage corretamente
+  // onMounted: Carregar quadra e data do localStorage
   onMounted(() => {
     const quadra = localStorage.getItem("quadraSelecionada");
-
+    const user = localStorage.getItem("user")
     data.value = localStorage.getItem("data");
+   if (user) {
+      userselecionado.value = JSON.parse(user);
+    }
 
     if (quadra) {
       quadraSelecionada.value = JSON.parse(quadra);
     }
   });
 
-  // Dados do cliente reativos
   const dadosCliente = reactive({
     nome: '',
     endereco: '',
@@ -26,49 +30,62 @@
     total: 0
   });
 
-  // Usando 'ref' para 'compraProcessada', que é um valor simples
   const compraProcessada = ref(false);
 
-  // Função para processar a compra
   const processarCompra = async () => {
+    
+  
     if (
       dadosCliente.nome &&
-      dadosCliente.endereco &&
       dadosCliente.cartao &&
-      dadosCliente.expiracao &&
+      dadosCliente.expiracaoMes &&
+      dadosCliente.expiracaoAno &&
       dadosCliente.cvv
-    ) {
+      
+    ) { 
       try {
-        console.log("quadraSelecionada")
-        console.log(quadraSelecionada)
-        console.log(quadraSelecionada.value.id)
-        console.log(data.value)
-        let resposta= await axios.post('http://10.60.44.32:3000/location/create', {
-          iduser: 1,
+        // Verificar se quadraSelecionada está disponível
+        if (!quadraSelecionada.value || !quadraSelecionada.value.id) {
+          console.error('Quadra não selecionada corretamente');
+          return;
+        }
+        console.log("location  criando")
+        // Criar a reserva de quadra
+        let resposta = await axios.post('http://10.60.44.32:3001/location/create', {
+          iduser: userselecionado.value.id,
           idcourt: quadraSelecionada.value.id,
           date: data.value
         });
-
-        await axios.put(`http://10.60.44.32:3000/quadra/update/${quadraSelecionada.value.id}`, {
+        console.log("quadra atualizando")
+        // Atualizar a quadra como 'alugada'
+        await axios.put(`http://10.60.44.32:3001/quadra/update/${quadraSelecionada.value.id}`, {
           alugado: "Alugado"
-        })
+        });
+  
+        const date = new Date();
 
-        // Enviando os dados para o servidor
-        await axios.post('http://10.60.44.32:3000/payment/create', {
-          method: dadosCliente.cartao,
-          total: dadosCliente.total,
-          date: new Date().toISOString(),
-          iduser: 1,  // Substitua por um valor real
+        const formattedDate = date.toISOString().split('T')[0];
+        console.log(formattedDate);
+
+        let preco = quadraSelecionada.value.preco; // Exemplo: "R$ 100,50"
+
+        // Remover o símbolo "R$" e substituir a vírgula por ponto
+        let precoDecimal = parseFloat(preco.replace("R$", "").replace(",", ".").trim());
+
+        await axios.post('http://10.60.44.32:3001/payment/create', {
+          total: precoDecimal,
+          date: formattedDate,
+          iduser: userselecionado.value.id,
           idlocation: resposta.data.location_created.id,
           cvv: dadosCliente.cvv,
           numbercard: dadosCliente.cartao,
-          dateexpiration: dadosCliente.expiracao,
-          address: dadosCliente.endereco
+          yearcard: dadosCliente.expiracaoMes,
+          monthcard: dadosCliente.expiracaoAno
         });
-        compraProcessada.value = true; 
+       
+        compraProcessada.value = true;
         window.location.href = "/perfil";
 
-        // Aqui você pode definir algum feedback visual para o usuário.
       } catch (error) {
         console.error('Erro ao processar a compra:', error);
       }
@@ -79,16 +96,11 @@
 <template>
   <div class="checkout-form">
     <h1 class="checkout-titulo">Finalizar Compra</h1>        
-    
+
     <form @submit.prevent="processarCompra">
       <div class="campo">
         <label>Nome Completo</label>
         <input type="text" v-model="dadosCliente.nome" required placeholder="Digite seu nome">
-      </div>
-
-      <div class="campo">
-        <label>Endereço</label>
-        <input type="text" v-model="dadosCliente.endereco" required placeholder="Digite seu endereço">
       </div>
 
       <div class="campo">
@@ -98,7 +110,10 @@
 
       <div class="campo">
         <label>Data de Expiração</label>
-        <input type="month" v-model="dadosCliente.expiracao" required>
+        <div class="campo-expiracao">
+          <input type="text" v-model="dadosCliente.expiracaoMes" required placeholder="Mês" maxlength="2">
+          <input type="text" v-model="dadosCliente.expiracaoAno" required placeholder="Ano" maxlength="4">
+        </div>
       </div>
 
       <div class="campo">
@@ -114,6 +129,7 @@
       <button type="submit" class="checkout-botao">Confirmar Compra</button>
     </form>
 
+    <!-- Exibindo mensagem de sucesso após compra -->
     <div v-if="compraProcessada.value" class="sucesso">
       <h2>Compra Finalizada com Sucesso!</h2>
     </div>
