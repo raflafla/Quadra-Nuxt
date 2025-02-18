@@ -8,7 +8,7 @@ const users = ref([]);
 
 async function buscartodos() {
     try {
-        let resposta = await axios.get('http://10.60.44.32:3001/user/read');
+        let resposta = await axios.get('http://10.60.44.24:3001/user/read');
         users.value = resposta.data.list_users;
         console.log(users.value);
     } catch (error) {

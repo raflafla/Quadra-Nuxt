@@ -1,53 +1,41 @@
-
 <script setup>
-import axios from 'axios';
+import { reactive, onMounted } from "vue";
+import axios from "axios";
 
-const user = reactive([])
-
-async function buscartodos(){
-    let resposta = await axios.get('http://10.60.44.36:3000/user/read')
-    user.value = resposta
-    console.log(user.value)
-}
-
-
-async function sendform (){
-
-    if(user.pass != confirm.value){
-        alert("Senha não compativeis")
-        return
-    }
-    await axios.post('http://10.60.44.36:3000/user/create', {
-        name: user.name, 
-        pass: user.pass,
-        cpf: user.cpf,
-        email: user.email,
-        phone: user.phone
-
-    })
-    alert("Cadastro feito com sucesso")
-    console.log(params.users)
-    window.location.href='/'
-}
-
-onMounted(() => {
-    buscartodos()
-    console.log('aqui')
+const user = reactive({
+    name: "",
+    pass: "",
+    cpf: "",
+    email: "",
+    phone: ""
 });
 
-function VerificaLogado(){
-    if( localStorage.getItem("user") ){
-      //localStorage.removeItem("user")
-      window.location.href='/'
+async function sendform() {
+    try {
+        await axios.post('http://10.60.44.24:3001/user/create', {
+            name: user.name, 
+            pass: user.pass,
+            cpf: user.cpf,
+            email: user.email,
+            phone: user.phone
+        });
+        alert("Cadastro feito com sucesso");
+        window.location.href = '/';
+    } catch (error) {
+        console.error("Erro ao cadastrar usuário:", error);
+        alert("Erro ao realizar o cadastro.");
     }
 }
 
-
-
+function VerificaLogado() {
+    if (localStorage.getItem("user")) {
+        window.location.href = '/';
+    }
+}
 
 onMounted(() => {
     VerificaLogado();
-})
+});
 </script>
 
 
