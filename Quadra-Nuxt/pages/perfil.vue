@@ -66,10 +66,12 @@ onMounted(() => {
         <h1 class="titulo">Histórico de Quadras</h1>
    
 
-    <div class="secao-p" v-for="l in location.value">
-        <div v-if="l.iduser == user.id">
-            <quadra v-bind:quadra="quadras[l.idcourt]" v-bind:telaorigem="'perfil'"/>
-            <p>{{ l.date }}</p>
+    <div class="secao-p" >
+        <div v-for="l in location.value">
+            <div v-if="l.iduser == user.id">
+                <quadra v-bind:quadra="quadras[l.idcourt]" v-bind:telaorigem="'perfil'"/>
+                <p>{{ l.date }}</p>
+            </div>
         </div>
     </div>
 </section>
