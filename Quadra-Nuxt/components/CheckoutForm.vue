@@ -51,14 +51,14 @@
         }
         console.log("location  criando")
         // Criar a reserva de quadra
-        let resposta = await axios.post('http://10.60.44.32:3001/location/create', {
+        let resposta = await axios.post('http://10.60.44.33:3001/location/create', {
           iduser: userselecionado.value.id,
           idcourt: quadraSelecionada.value.id,
           date: data.value
         });
         console.log("quadra atualizando")
         // Atualizar a quadra como 'alugada'
-        await axios.put(`http://10.60.44.32:3001/quadra/update/${quadraSelecionada.value.id}`, {
+        await axios.put(`http://10.60.44.33:3001/quadra/update/${quadraSelecionada.value.id}`, {
           alugado: "Alugado"
         });
   
@@ -72,11 +72,11 @@
         // Remover o símbolo "R$" e substituir a vírgula por ponto
         let precoDecimal = parseFloat(preco.replace("R$", "").replace(",", ".").trim());
 
-        await axios.post('http://10.60.44.32:3001/payment/create', {
+        await axios.post('http://10.60.44.33:3001/payment/create', {
           total: precoDecimal,
           date: formattedDate,
           iduser: userselecionado.value.id,
-          idlocation: resposta.data.location_created.id,
+          idlocation: resposta.data.db.id,
           cvv: dadosCliente.cvv,
           numbercard: dadosCliente.cartao,
           yearcard: dadosCliente.expiracaoMes,
