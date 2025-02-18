@@ -64,12 +64,13 @@ onMounted(() => {
 
     <section>
         <h1 class="titulo">Histórico de Quadras</h1>
-    </section>
+   
 
     <div class="secao-p" v-for="l in location.value">
         <p>{{ l.date }}</p>
         <quadra v-bind:quadra="quadras[l.idcourt]" v-bind:telaorigem="'perfil'"/>
     </div>
+</section>
 </template>
 
 <style>
