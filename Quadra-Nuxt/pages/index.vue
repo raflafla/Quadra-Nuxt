@@ -4,7 +4,7 @@
 const quadras = reactive([])
 
 async function buscartodos(){
-    let resposta = await axios.get('http://10.60.44.36:3000/quadra/read')
+    let resposta = await axios.get('http://10.60.44.33:3000/quadra/read')
     quadras.value = resposta.data.db
     console.log(quadras.value)
     
