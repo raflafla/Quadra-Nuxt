@@ -44,7 +44,7 @@ async function sendform() {
     }
 
     try {
-        const response = await axios.post("http://10.60.44.24:3001/user/create", {
+        const response = await axios.post("http://10.60.44.33:3001/user/create", {
             name: user.value.name,
             pass: user.value.pass,
             cpf: user.value.cpf,

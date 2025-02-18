@@ -11,7 +11,7 @@ const showMensagem = ref(false);
 
 async function buscartodos() {
     try {
-        let resposta = await axios.get('http://10.60.44.24:3001/user/read');
+        let resposta = await axios.get('http://10.60.44.33:3001/user/read');
         users.value = resposta.data.list_users;
     } catch (error) {
         showMessage("Erro ao buscar usuários.", "error");
