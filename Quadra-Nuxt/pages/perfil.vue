@@ -67,8 +67,10 @@ onMounted(() => {
    
 
     <div class="secao-p" v-for="l in location.value">
-        <p>{{ l.date }}</p>
-        <quadra v-bind:quadra="quadras[l.idcourt]" v-bind:telaorigem="'perfil'"/>
+        <div v-if="l.iduser == user.id">
+            <quadra v-bind:quadra="quadras[l.idcourt]" v-bind:telaorigem="'perfil'"/>
+            <p>{{ l.date }}</p>
+        </div>
     </div>
 </section>
 </template>
