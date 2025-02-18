@@ -1,10 +1,10 @@
-:root{
+:root {
     --cor-background: rgb(31, 31, 31);
     --cor-navbar: rgb(24, 24, 24);
     --cor-principal: #9b2b90;
     --cor-secundaria: #682a65;
-    
 }
+
 .upload-button {
     margin-top: 10px;
     padding: 10px 15px;
@@ -14,7 +14,6 @@
     border-radius: 4px;
     cursor: pointer;
 }
-
 
 .perfil-imagem {
     width: 100px;
@@ -47,8 +46,6 @@
     text-decoration: none; 
     color: inherit; 
     display: block;
-    
-    
 }
 
 .card-header {
@@ -64,7 +61,6 @@
 
 .card-content {
     padding: 16px;
-
 }
 
 .card-title {
@@ -94,18 +90,34 @@
     background: #9d2baf;
 }
 
-.titulo{
+.titulo {
     text-align: center;
 }
 
-.Sair{
-    margin-left: 220px;
-    
+.Sair {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: var(--cor-secundaria);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
 }
 
-.secao-p{
+.Sair:hover {
+    background-color: var(--cor-principal);
+}
+
+.Sair p {
+    margin: 0;
+}
+
+.secao-p {
     display: flex; 
     flex-wrap: wrap;  
     flex: 0 0 30%; 
-    justify-content:space-between;
+    justify-content: space-between;
 }
