@@ -12,7 +12,7 @@ const user = reactive({
 
 async function sendform() {
     try {
-        await axios.post('http://10.60.44.33:3001/user/create', {
+        await axios.post('http://10.60.44.24:3001/user/create', {
             name: user.name, 
             pass: user.pass,
             cpf: user.cpf,
