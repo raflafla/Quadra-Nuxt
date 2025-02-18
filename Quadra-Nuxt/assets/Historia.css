@@ -1,23 +1,129 @@
-:root{
+:root {
     --cor-background: rgb(31, 31, 31);
     --cor-navbar: rgb(24, 24, 24);
     --cor-principal: #c34de4;
     --cor-secundaria: #9d2baf;
 }
 
-
-.historia-container{
+/* Container principal */
+.historia-container {
     display: flex;
-    align-items: center;
     justify-content: center;
-    height: 740px;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+    background-color: var(--cor-background); /* Aqui é o fundo correto */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Uma sombra suave para o contorno */
 }
-.historia-container-a{
+
+/* Estrutura interna de conteúdo */
+.historia-container-a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 1000px;
+    max-width: 100%;
+    text-align: center;
+    padding: 30px;
 }
-.historia-titulo{
+
+/* Título da seção */
+.historia-titulo {
+    font-size: 2.5rem;
+    color: var(--cor-principal);
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Subtítulos das seções */
+.historia-subtitulo {
     font-size: 1.8rem;
+    color: var(--cor-secundaria);
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+/* Texto do parágrafo */
+.historia-texto {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: white;
+    max-width: 800px;
+    margin-bottom: 30px;
+    font-family: 'Roboto', sans-serif;
+    text-align: justify;
+}
+
+/* Lista de funcionalidades e benefícios */
+.historia-lista,
+.historia-lista-beneficios {
+    font-size: 1.1rem;
+    color: white;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.historia-lista li, .historia-lista-beneficios li {
+    margin-bottom: 10px;
+}
+
+/* Estilo da imagem */
+.historia-imagem-container {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.historia-imagem {
+    max-width: 100%;
+    width: 450px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.historia-imagem:hover {
+    transform: scale(1.05);
+}
+
+.historia-texto-imagem {
+    font-size: 0.9rem;
+    color: white;
+    max-width: 450px;
+    margin-top: 10px;
+}
+
+/* Botão de ação */
+.historia-botao {
+    margin-top: 20px;
+    background-color: var(--cor-principal);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.historia-botao:hover {
+    background-color: var(--cor-secundaria);
+}
+
+@media (max-width: 768px) {
+    .historia-titulo {
+        font-size: 2rem;
+    }
+
+    .historia-texto {
+        font-size: 1rem;
+    }
+
+    .historia-imagem {
+        width: 100%;
+    }
 }
